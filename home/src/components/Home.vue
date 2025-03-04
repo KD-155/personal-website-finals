@@ -96,7 +96,7 @@ onMounted(() => {
       </div>     
     </div>
     <div class="home-img">
-      <img src="pictures/image7.jpg" alt="Profile" class="profile-img">
+      <img :src="image7.jpg" alt="Profile" class="profile-img">
     </div>
   </section>
 
