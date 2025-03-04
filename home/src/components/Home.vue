@@ -12,7 +12,7 @@ import image7 from '../assets/image7.jpg';
 
 const commentName = ref('');
 const commentText = ref('');
-const comments = ref();
+const comments = ref(); // Initialize as an empty array
 const error = ref(null);
 
 async function getComments() {
@@ -85,7 +85,7 @@ onMounted(() => {
       <p>I am currently a 2nd-Year College student, Batch 2023-2027.</p>
       <div class="socials-grid">
         <div class="social-card">
-          <a href="https://github.com/KD-155"><i class="fa-brands fa-github"></i></a> 
+          <a href="https://github.com/KD-155"><i class="fa-brands fa-github"></i></a>
         </div>
         <div class="social-card">
           <a href="mailto:ksdumbrique2@student.apc.edu.ph"><i class="fa-regular fa-envelope"></i></a>
@@ -93,10 +93,10 @@ onMounted(() => {
         <div class="social-card">
           <a href="https://www.linkedin.com/in/kelly-dumbrique-928a7b216/"><i class="fa-brands fa-linkedin"></i></a>
         </div>
-      </div>     
+      </div>
     </div>
     <div class="home-img">
-      <img :src="image7.jpg" alt="Profile" class="profile-img">
+      <img src="/images/image7.jpg" alt="Profile" class="profile-img">
     </div>
   </section>
 
@@ -207,7 +207,7 @@ onMounted(() => {
       </div>
       <div class="experience-card">
         <i class="fa-brands fa-java"></i>
-        <h3>Java</h3> 
+        <h3>Java</h3>
       </div>
       <div class="experience-card">
         <i class="fa-brands fa-js"></i>
@@ -272,19 +272,19 @@ onMounted(() => {
     <h2>Picture Gallery</h2>
     <div class="gallery-grid">
       <div class="gallery-card">
-        <img :src="image1" alt="Gallery Image 1">
+        <img src="/images/image1.jpg" alt="Gallery Image 1">
       </div>
       <div class="gallery-card">
-        <img :src="image6" alt="Gallery Image 2">
+        <img src="/images/image6.jpg" alt="Gallery Image 2">
       </div>
       <div class="gallery-card">
-        <img :src="image3" alt="Gallery Image 3">
+        <img src="/images/image3.jpg" alt="Gallery Image 3">
       </div>
       <div class="gallery-card">
-        <img :src="image4" alt="Gallery Image 4">
+        <img src="/images/image4.jpg" alt="Gallery Image 4">
       </div>
       <div class="gallery-card">
-        <img :src="image2" alt="Gallery Image 5">
+        <img src="/images/image2.jpg" alt="Gallery Image 5">
       </div>
     </div>
   </section>
