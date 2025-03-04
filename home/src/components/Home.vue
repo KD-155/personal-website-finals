@@ -12,46 +12,38 @@ import image7 from '../assets/image7.jpg';
 
 const commentName = ref('');
 const commentText = ref('');
-const comments = ref(); // Initialize as an empty array
+const comments = ref([]); // Initialize as an empty array
 const error = ref(null);
 
 async function getComments() {
   try {
-    let { data: comments, error } = await supabase
-      .from('comments')
-      .select('*');
-
-    if (error) {
-      throw error;
-    }
-
-    comments.value = comments;
-  } catch (error) {
-    error.value = 'Error fetching comments: ' + error.message;
+    let { data, error: fetchError } = await supabase.from('comments').select('*');
+    if (fetchError) throw fetchError;
+    comments.value = data;
+  } catch (fetchError) {
+    error.value = 'Error fetching comments: ' + fetchError.message;
   }
 }
 
 async function addComment() {
   try {
-    if (!commentName.value || !commentText.value) {
+    if (!commentName.value.trim() || !commentText.value.trim()) {
       error.value = 'Please enter both your name and a message.';
       return;
     }
 
-    const { error } = await supabase
+    const { error: insertError } = await supabase
       .from('comments')
       .insert([{ name: commentName.value, comment: commentText.value }]);
 
-    if (error) {
-      throw error;
-    }
+    if (insertError) throw insertError;
 
     commentName.value = '';
     commentText.value = '';
     error.value = null;
     getComments();
-  } catch (error) {
-    error.value = 'Error adding comment: ' + error.message;
+  } catch (insertError) {
+    error.value = 'Error adding comment: ' + insertError.message;
   }
 }
 
@@ -96,7 +88,7 @@ onMounted(() => {
       </div>
     </div>
     <div class="home-img">
-      <img src="/images/image7.jpg" alt="Profile" class="profile-img">
+      <img :src="image7" alt="Profile" class="profile-img">
     </div>
   </section>
 
@@ -272,19 +264,19 @@ onMounted(() => {
     <h2>Picture Gallery</h2>
     <div class="gallery-grid">
       <div class="gallery-card">
-        <img src="/images/image1.jpg" alt="Gallery Image 1">
+        <img :src="image1" alt="Gallery Image 1">
       </div>
       <div class="gallery-card">
-        <img src="/images/image6.jpg" alt="Gallery Image 2">
+        <img :src="image6" alt="Gallery Image 2">
       </div>
       <div class="gallery-card">
-        <img src="/images/image3.jpg" alt="Gallery Image 3">
+        <img :src="image3" alt="Gallery Image 3">
       </div>
       <div class="gallery-card">
-        <img src="/images/image4.jpg" alt="Gallery Image 4">
+        <img :src="image4" alt="Gallery Image 4">
       </div>
       <div class="gallery-card">
-        <img src="/images/image2.jpg" alt="Gallery Image 5">
+        <img :src="image2" alt="Gallery Image 5">
       </div>
     </div>
   </section>
