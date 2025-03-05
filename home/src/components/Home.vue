@@ -1,6 +1,5 @@
 <script setup>
 import { ref, onMounted } from 'vue';
-import { supabase } from './supabaseClient.js';
 
 // Import images from assets folder
 import image1 from '../assets/image1.jpg';
