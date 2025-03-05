@@ -234,7 +234,7 @@ onMounted(() => {
       </div>
       <div class="experience-card">
         <i class="fa-solid fa-v"></i>
-        <h3>Virtual Studio Code</h3>
+        <h3>Visual Studio Code</h3>
       </div>
       <div class="experience-card">
         <i class="fa-brands fa-vuejs"></i>
