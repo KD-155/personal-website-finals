@@ -17,38 +17,38 @@ const comments = ref();
 const error = ref(null);
 
 const addComment = async () => {
-    try {
-        const { error: insertError } = await supabase
-            .from('comments')
-            .insert([{ name: commentName.value, comment: commentText.value }]);
+  try {
+    const { error: insertError } = await supabase
+      .from('comments')
+      .insert([{ commentName: commentName.value, commentText: commentText.value }]);
 
-        if (insertError) {
-            throw insertError;
-        }
-
-        commentName.value = '';
-        commentText.value = '';
-        await fetchComments();
-    } catch (err) {
-        error.value = err.message;
+    if (insertError) {
+      throw insertError;
     }
+
+    commentName.value = '';
+    commentText.value = '';
+    await fetchComments();
+  } catch (err) {
+    error.value = err.message;
+  }
 };
 
 const fetchComments = async () => {
-    try {
-        const { data, error: selectError } = await supabase
-            .from('comments')
-            .select('*')
-            .order('created_at', { ascending: false });
+  try {
+    const { data, error: selectError } = await supabase
+      .from('comments')
+      .select('*')
+      .order('created_at', { ascending: false });
 
-        if (selectError) {
-            throw selectError;
-        }
-
-        comments.value = data;
-    } catch (err) {
-        error.value = err.message;
+    if (selectError) {
+      throw selectError;
     }
+
+    comments.value = data;
+  } catch (err) {
+    error.value = err.message;
+  }
 };
 
 onMounted(async () => {
@@ -326,9 +326,9 @@ onMounted(async () => {
       </div>
       <button @click="addComment">Submit</button>
       <div id="comment-list">
-        <div v-for="comment in comments" :key="comment.id" class="comment-item">
-          <strong>{{ comment.name }}:</strong> {{ comment.comment }}
-        </div>
+      <div v-for="comment in comments" :key="comment.id" class="comment-item">
+        <strong>{{ comment.commentName }}:</strong> {{ comment.commentText }}
+      </div>
       </div>
     </div>
   </section>
