@@ -65,7 +65,6 @@ onMounted(async () => {
       <div></div>
     </label>
     <ul class="nav-links">
-      <li><a href="#home">About</a></li>
       <li><a href="#education">Education</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#hobbies">Hobbies</a></li>
