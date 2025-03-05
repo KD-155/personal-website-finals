@@ -76,13 +76,13 @@ onMounted(() => {
       <p>I am currently a 2nd-Year College student, Batch 2023-2027.</p>
       <div class="socials-grid">
         <div class="social-card">
-          <a href="https://github.com/KD-155"><i class="fa-brands fa-github"></i></a>
+          <a href="https://github.com/KD-155" target=""><i class="fa-brands fa-github"></i></a>
         </div>
         <div class="social-card">
-          <a href="mailto:ksdumbrique2@student.apc.edu.ph"><i class="fa-regular fa-envelope"></i></a>
+          <a href="mailto:ksdumbrique2@student.apc.edu.ph" target=""><i class="fa-regular fa-envelope"></i></a>
         </div>
         <div class="social-card">
-          <a href="https://www.linkedin.com/in/kelly-dumbrique-928a7b216/"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="https://www.linkedin.com/in/kelly-dumbrique-928a7b216/" target=""><i class="fa-brands fa-linkedin"></i></a>
         </div>
       </div>
     </div>
