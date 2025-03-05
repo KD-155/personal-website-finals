@@ -71,6 +71,7 @@ onMounted(async () => {
       <li><a href="#hobbies">Hobbies</a></li>
       <li><a href="#gallery">Gallery</a></li>
       <li><a href="#resources">Resources</a></li>
+      <li><a href="#comments">Feedback</a></li>
     </ul>
   </nav>
 
