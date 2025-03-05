@@ -173,51 +173,51 @@ onMounted(() => {
     <h2>Skills | Experience</h2>
     <div class="experience-grid">
       <div class="experience-card">
-        <i class="fa-solid fa-c"></i>
+        <a href="https://www.canva.com/" target="_blank"></a><i class="fa-solid fa-c"></i>
         <h3>Canva</h3>
       </div>
       <div class="experience-card">
-        <i class="fa-brands fa-css3-alt"></i>
+        <a href="https://www.w3schools.com/Css/" target="_blank"></a><i class="fa-brands fa-css3-alt"></i>
         <h3>CSS</h3>
       </div>
       <div class="experience-card">
-        <i class="fa-brands fa-figma"></i>
+        <a href="https://www.figma.com/" target="_blank"></a><i class="fa-brands fa-figma"></i>
         <h3>Figma</h3>
       </div>
       <div class="experience-card">
-        <i class="fa-brands fa-f"></i>
+        <a href="http://flowgorithm.org/" target="_blank"></a><i class="fa-brands fa-f"></i>
         <h3>Flowgorithm</h3>
       </div>
       <div class="experience-card">
-        <i class="fa-brands fa-github"></i>
+        <a href="https://github.com/" target="_blank"></a><i class="fa-brands fa-github"></i>
         <h3>GitHub</h3>
       </div>
       <div class="experience-card">
-        <i class="fa-brands fa-html5"></i>
+        <a href="https://www.w3schools.com/html/" target="_blank"></a><i class="fa-brands fa-html5"></i>
         <h3>HTML</h3>
       </div>
       <div class="experience-card">
-        <i class="fa-brands fa-java"></i>
+        <a href="https://www.java.com/en/" target="_blank"></a><i class="fa-brands fa-java"></i>
         <h3>Java</h3>
       </div>
       <div class="experience-card">
-        <i class="fa-brands fa-js"></i>
+        <a href="https://www.w3schools.com/js/default.asp" target="_blank"></a><i class="fa-brands fa-js"></i>
         <h3>JavaScript</h3>
       </div>
       <div class="experience-card">
-        <i class="fa-brands fa-microsoft"></i>
-        <h3>Microsoft Office</h3>
+        <a href="https://m365.cloud.microsoft/?auth=2" target="_blank"></a><i class="fa-brands fa-microsoft"></i>
+        <h3>Microsoft Office 365</h3>
       </div>
       <div class="experience-card">
-        <i class="fa-solid fa-database"></i>
+        <a href="https://www.mysql.com/" target="_blank"></a><i class="fa-solid fa-database"></i>
         <h3>MySQL</h3>
       </div>
       <div class="experience-card">
-        <i class="fa-brands fa-python"></i>
+        <a href="https://www.python.org/" target="_blank"></a><i class="fa-brands fa-python"></i>
         <h3>Python</h3>
       </div>
       <div class="experience-card">
-        <i class="fa-brands fa-react"></i>
+        <a href="https://react.dev/" target="_blank"></a><i class="fa-brands fa-react"></i>
         <h3>React</h3>
       </div>
       <div class="experience-card">
@@ -229,15 +229,15 @@ onMounted(() => {
         <h3>Technical Support</h3>
       </div>
       <div class="experience-card">
-        <i class="fa-brands fa-ubuntu"></i>
+        <a href="https://ubuntu.com/desktop" target="_blank"></a><i class="fa-brands fa-ubuntu"></i>
         <h3>Ubuntu</h3>
       </div>
       <div class="experience-card">
-        <i class="fa-solid fa-v"></i>
+        <a href="https://code.visualstudio.com/" target="_blank"></a><i class="fa-solid fa-v"></i>
         <h3>Visual Studio Code</h3>
       </div>
       <div class="experience-card">
-        <i class="fa-brands fa-vuejs"></i>
+        <a href="https://vuejs.org/" target="_blank"></a><i class="fa-brands fa-vuejs"></i>
         <h3>Vue.js</h3>
       </div>
     </div>
