@@ -2,7 +2,6 @@
 import { ref, onMounted } from 'vue';
 import { supabase } from '../lib/supabaseClient'
 
-
 // Import images from assets folder
 import image1 from '../assets/image1.jpg';
 import image2 from '../assets/image2.jpg';
@@ -13,49 +12,47 @@ import image7 from '../assets/image7.jpg';
 
 const commentName = ref('');
 const commentText = ref('');
-const comments = ref();
+const comments = ref([]);
 const error = ref(null);
 
 const addComment = async () => {
-    try {
-        const { error: insertError } = await supabase
-            .from('comments')
-            .insert([{ name: commentName.value, comment: commentText.value }]);
+  try {
+    const { error: insertError } = await supabase
+      .from('comments')
+      .insert([{ name: commentName.value, comment: commentText.value }]);
 
-        if (insertError) {
-            throw insertError;
-        }
-
-        commentName.value = '';
-        commentText.value = '';
-        await fetchComments();
-    } catch (err) {
-        error.value = err.message;
+    if (insertError) {
+      throw insertError;
     }
+
+    commentName.value = '';
+    commentText.value = '';
+    await fetchComments();
+  } catch (err) {
+    error.value = err.message;
+  }
 };
 
 const fetchComments = async () => {
-    try {
-        const { data, error: selectError } = await supabase
-            .from('comments')
-            .select('*')
-            .order('created_at', { ascending: false });
+  try {
+    const { data, error: selectError } = await supabase
+      .from('comments')
+      .select('*')
+      .order('created_at', { ascending: false });
 
-        if (selectError) {
-            throw selectError;
-        }
-
-        comments.value = data;
-    } catch (err) {
-        error.value = err.message;
+    if (selectError) {
+      throw selectError;
     }
+
+    comments.value = data;
+  } catch (err) {
+    error.value = err.message;
+  }
 };
 
 onMounted(async () => {
-    await fetchComments();
+  await fetchComments();
 });
-
-
 </script>
 
 <template>
@@ -320,7 +317,7 @@ onMounted(async () => {
       <p>Let me know your feedback!</p>
       <div v-if="error" class="error-message">{{ error }}</div>
       <div class="comments-content">
-        <textarea v-model="commentName" placeholder="Your Name" required></textarea>
+        <input v-model="commentName" placeholder="Your Name" required />
       </div>
       <div class="comments-content">
         <textarea v-model="commentText" placeholder="Message" required></textarea>
