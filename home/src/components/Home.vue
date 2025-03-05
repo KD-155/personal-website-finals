@@ -2,7 +2,6 @@
 import { ref, onMounted } from 'vue';
 import { supabase } from '../lib/supabaseClient'
 
-
 // Import images from assets folder
 import image1 from '../assets/image1.jpg';
 import image2 from '../assets/image2.jpg';
@@ -54,7 +53,6 @@ const fetchComments = async () => {
 onMounted(async () => {
     await fetchComments();
 });
-
 </script>
 
 <template>
