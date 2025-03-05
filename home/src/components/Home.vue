@@ -1,5 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
+import { supabase } from '../lib/supabaseClient'
+
 
 // Import images from assets folder
 import image1 from '../assets/image1.jpg';
@@ -11,44 +13,49 @@ import image7 from '../assets/image7.jpg';
 
 const commentName = ref('');
 const commentText = ref('');
-const comments = ref([]); // Initialize as an empty array
+const comments = ref();
 const error = ref(null);
 
-async function getComments() {
-  try {
-    let { data, error: fetchError } = await supabase.from('comments').select('*');
-    if (fetchError) throw fetchError;
-    comments.value = data;
-  } catch (fetchError) {
-    error.value = 'Error fetching comments: ' + fetchError.message;
-  }
-}
+const addComment = async () => {
+    try {
+        const { error: insertError } = await supabase
+            .from('comments')
+            .insert([{ name: commentName.value, comment: commentText.value }]);
 
-async function addComment() {
-  try {
-    if (!commentName.value.trim() || !commentText.value.trim()) {
-      error.value = 'Please enter both your name and a message.';
-      return;
+        if (insertError) {
+            throw insertError;
+        }
+
+        commentName.value = '';
+        commentText.value = '';
+        await fetchComments();
+    } catch (err) {
+        error.value = err.message;
     }
+};
 
-    const { error: insertError } = await supabase
-      .from('comments')
-      .insert([{ name: commentName.value, comment: commentText.value }]);
+const fetchComments = async () => {
+    try {
+        const { data, error: selectError } = await supabase
+            .from('comments')
+            .select('*')
+            .order('created_at', { ascending: false });
 
-    if (insertError) throw insertError;
+        if (selectError) {
+            throw selectError;
+        }
 
-    commentName.value = '';
-    commentText.value = '';
-    error.value = null;
-    getComments();
-  } catch (insertError) {
-    error.value = 'Error adding comment: ' + insertError.message;
-  }
-}
+        comments.value = data;
+    } catch (err) {
+        error.value = err.message;
+    }
+};
 
-onMounted(() => {
-  getComments();
+onMounted(async () => {
+    await fetchComments();
 });
+
+
 </script>
 
 <template>

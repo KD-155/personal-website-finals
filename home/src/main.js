@@ -1,8 +1,9 @@
-import './assets/main.css'; // Import the CSS file
+import './assets/main.css';
 
 import { createApp } from 'vue';
 import App from './App.vue';
 import Home from './components/Home.vue'
+import comments from './comments.js'
 
 // Create the app instance
 const app = createApp(App);
@@ -13,6 +14,7 @@ app.config.errorHandler = (err) => {
 };
 
 app.component('Home', Home)
+app.component('comments', comments)
 
 // Mount the app
 app.mount('#app');

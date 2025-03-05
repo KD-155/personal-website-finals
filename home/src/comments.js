@@ -49,5 +49,5 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    loadComments(); // Load comments on page load
+    loadComments(); 
 });
